@@ -62,4 +62,15 @@ return require('packer').startup(function(use)
     use("eandrju/cellular-automaton.nvim")
     use("laytan/cloak.nvim")
     use("christoomey/vim-tmux-navigator")
+    use "folke/neodev.nvim"
+
+    -- Debugging
+    use 'mfussenegger/nvim-dap'
+    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+    use { "mxsdev/nvim-dap-vscode-js", requires = {"mfussenegger/nvim-dap"} }
+    use {
+        "microsoft/vscode-js-debug",
+        opt = true,
+        run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out"
+    }
 end)
