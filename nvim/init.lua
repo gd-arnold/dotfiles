@@ -1,1 +1,1 @@
-require("georgi")
+require("georgi");
