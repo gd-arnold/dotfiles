@@ -31,7 +31,7 @@ local function my_on_attach(bufnr)
     vim.keymap.set("n", "H", api.tree.collapse_all, opts("Collapse All"))
 end
 
-vim.api.nvim_set_keymap("n", "<C-j>", ":NvimTreeToggle<cr>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>j", ":NvimTreeToggle<cr>", {silent = true, noremap = true})
 
 tree.setup({
     on_attach = my_on_attach
