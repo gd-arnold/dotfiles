@@ -13,13 +13,13 @@ return require('packer').startup(function(use)
 	}
 
 	-- Colorscheme
-	-- use { 'ellisonleao/gruvbox.nvim' }
-    use {
-        "folke/tokyonight.nvim",
-        lazy = false,
-        priority = 1000,
-        opts = {},
-    }
+	use { 'ellisonleao/gruvbox.nvim' }
+    --use {
+    --    "folke/tokyonight.nvim",
+    --    lazy = false,
+    --    priority = 1000,
+    --    opts = {},
+    --}
 
 	-- Treesitter
 	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
