@@ -1,5 +1,4 @@
-local tree = require("nvim-tree");
-local api = require("nvim-tree.api");
+local tree = require("nvim-tree"); local api = require("nvim-tree.api");
 
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1
@@ -23,6 +22,8 @@ local function edit_or_open()
 end
 
 local function my_on_attach(bufnr)
+    api.config.mappings.default_on_attach(bufnr)
+
     local function opts(desc)
         return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
     end
