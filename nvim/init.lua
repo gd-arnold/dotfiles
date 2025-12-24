@@ -1,6 +1,5 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-
 -- disable netrw early (required for nvim-tree)
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -144,6 +143,21 @@ require("lazy").setup({
         builtin.grep_string({ search = vim.fn.input("Grep > ") });
       end);
     end,
+  },
+  {
+    "christoomey/vim-tmux-navigator"
+  },
+  {
+    "mrjones2014/smart-splits.nvim",
+    config = function()
+      local smart_splits = require("smart-splits")
+
+      -- tmux prefix is <C-a>, mirror prefix + h/j/k/l in Neovim
+      vim.keymap.set("n", "<C-a>h", smart_splits.resize_left)
+      vim.keymap.set("n", "<C-a>j", smart_splits.resize_down)
+      vim.keymap.set("n", "<C-a>k", smart_splits.resize_up)
+      vim.keymap.set("n", "<C-a>l", smart_splits.resize_right)
+    end,
   }
 })
 
@@ -170,13 +184,6 @@ vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
-
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
-
-vim.keymap.set("n", "<leader><leader>", function()
-    vim.cmd("so")
-end)
 
 -- Options --
 vim.opt.nu = true
