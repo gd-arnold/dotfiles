@@ -84,6 +84,14 @@ require("lazy").setup({
     end,
   },
   {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require("gitsigns").setup()
+      vim.keymap.set("n", "<leader>s", "<cmd>Gitsigns preview_hunk<CR>")
+      vim.keymap.set("n", "<leader>p", "<cmd>Gitsigns stage_hunk<CR>")
+    end,
+  },
+  {
     "nvim-telescope/telescope-fzf-native.nvim",
     build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release"
   },
