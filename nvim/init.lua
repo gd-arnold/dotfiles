@@ -227,6 +227,15 @@ vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
 
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = args.buf })
+    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = args.buf })
+    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = args.buf })
+    vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = args.buf })
+  end,
+})
+
 -- Options --
 vim.opt.nu = true
 vim.opt.relativenumber = true
